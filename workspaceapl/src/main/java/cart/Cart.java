@@ -79,8 +79,11 @@ public class Cart {
 			ProductCatalogue.promoList.stream()
 			.filter(promo->promo.getRule().keySet().contains(k))
 			.forEach(promo->{
+				//Rule 1 & 2 generic condition and calculation
 				if(promo.getRule().get(k)>1) {
 					cart.addAmount((v/promo.getRule().get(k)*promo.getPromoPrice()) + (v%promo.getRule().get(k)*ProductCatalogue.itemCostMap.get(k)));
+				}else {
+					cart.addAmount(v*ProductCatalogue.itemCostMap.get(k));
 				}
 			});
 		});
