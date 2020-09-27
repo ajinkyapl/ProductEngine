@@ -77,9 +77,10 @@ public class Cart {
 		//promo iteration to calculate cost
 		itemCount.forEach((k,v)->{
 			ProductCatalogue.promoList.stream()
+			.filter(promo->promo.getRule().keySet().contains(k))
 			.forEach(promo->{
-				if(promo.getRule().keySet().contains(k) && promo.getRule().get(k)>1) {
-					//rule1&2 generic implementation
+				if(promo.getRule().get(k)>1) {
+					cart.addAmount((v/promo.getRule().get(k)*promo.getPromoPrice()) + (v%promo.getRule().get(k)*ProductCatalogue.itemCostMap.get(k)));
 				}
 			});
 		});

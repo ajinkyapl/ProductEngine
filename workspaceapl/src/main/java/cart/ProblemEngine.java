@@ -16,7 +16,7 @@ public class ProblemEngine {
 			cart.addItems(new Item(br.readLine().toUpperCase()));
 		}
 
-		System.out.println("Total Cart Amount: " + cart.getTotalPrice(cart));
+		System.out.println("Total Cart Amount: " + cart.getCartPrice(cart));
 	}
 
 }

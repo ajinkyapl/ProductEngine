@@ -13,7 +13,7 @@ public class CartTest {
 		cart.addItems(new Item("A"));
 		cart.addItems(new Item("B"));
 		cart.addItems(new Item("C"));
-		assertEquals("Test1 Success", 100, cart.getTotalPrice(cart));
+		assertEquals("Test1 Success", 100, cart.getCartPrice(cart));
 	}
 	
 	@Test
@@ -22,7 +22,7 @@ public class CartTest {
 		for (int i = 0; i < 5; i++)cart.addItems(new Item("A"));
 		for (int i = 0; i < 5; i++)cart.addItems(new Item("B"));
 		cart.addItems(new Item("C"));
-		assertEquals("Test2 Success", 370, cart.getTotalPrice(cart));
+		assertEquals("Test2 Success", 370, cart.getCartPrice(cart));
 	}
 	
 	@Test
@@ -32,7 +32,7 @@ public class CartTest {
 		for (int i = 0; i < 5; i++)cart.addItems(new Item("B"));
 		cart.addItems(new Item("C"));
 		cart.addItems(new Item("D"));
-		assertEquals("Test3 Success", 280, cart.getTotalPrice(cart));
+		assertEquals("Test3 Success", 280, cart.getCartPrice(cart));
 	}
 	
 	@Test
