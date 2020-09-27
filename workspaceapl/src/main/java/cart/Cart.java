@@ -75,11 +75,13 @@ public class Cart {
 		cart.getItems().forEach(item -> itemCount.put(item.getId(), itemCount.get(item.getId()) + 1));
 		
 		//promo iteration to calculate cost
-		ProductCatalogue.promoList.stream().collect(groupingBy(itemCount.keySet()))
-		.forEach(promo->{
-			if(promo->promo.getRule()) {
-				//product iteration
-			}
+		itemCount.forEach((k,v)->{
+			ProductCatalogue.promoList.stream()
+			.forEach(promo->{
+				if(promo.getRule().keySet().contains(k) && promo.getRule().get(k)>1) {
+					//rule1&2 generic implementation
+				}
+			});
 		});
 		
 		return cart.getAmount();
