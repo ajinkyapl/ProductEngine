@@ -70,9 +70,17 @@ public class Cart {
 	}
 
 	public int getCartPrice(Cart cart) {
+		
+		//code to get count of products by type and set in itemCount
 		cart.getItems().forEach(item -> itemCount.put(item.getId(), itemCount.get(item.getId()) + 1));
 		
-		ProductCatalogue.promoList.stream();
+		//promo iteration to calculate cost
+		ProductCatalogue.promoList.stream().collect(groupingBy(itemCount.keySet()))
+		.forEach(promo->{
+			if(promo->promo.getRule()) {
+				//product iteration
+			}
+		});
 		
 		return cart.getAmount();
 	}
