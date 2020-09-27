@@ -39,6 +39,10 @@ public class Cart {
 
 	public int getTotalPrice(Cart cart) {
 		
+		cart.getItems().forEach(item -> itemCount.put(item.getId(), itemCount.get(item.getId()) + 1));
+
+		cart.addAmount(
+				(itemCount.get("A") / 3) * 130 + (itemCount.get("A") % 3 * ProductCatalogue.itemCostMap.get("A")));
 		return cart.getAmount();
 	}
 
