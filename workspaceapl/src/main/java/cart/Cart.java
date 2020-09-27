@@ -52,8 +52,19 @@ public class Cart {
 		cart.addAmount(
 				(itemCount.get("B") / 2) * 45 + (itemCount.get("B") % 2 * ProductCatalogue.itemCostMap.get("B")));
 
-		cart.addAmount(itemCount.get("C") * ProductCatalogue.itemCostMap.get("C")
+		//Rule 3 to check 2 products and if they persent, then apply rule
+		if (itemCount.get("C") > 0 && itemCount.get("D") > 0)
+			if (itemCount.get("C") > itemCount.get("D")) {
+				cart.addAmount(itemCount.get("D") * 30);
+				cart.addAmount((itemCount.get("C") - itemCount.get("D")) * ProductCatalogue.itemCostMap.get("C"));
+			} else {
+				cart.addAmount(itemCount.get("C") * 30);
+				cart.addAmount((itemCount.get("D") - itemCount.get("C")) * ProductCatalogue.itemCostMap.get("D"));
+			}
+		else
+			cart.addAmount(itemCount.get("C") * ProductCatalogue.itemCostMap.get("C")
 					+ itemCount.get("D") * ProductCatalogue.itemCostMap.get("D"));
+		
 		return cart.getAmount();
 		
 	}

@@ -35,4 +35,13 @@ public class CartTest {
 		assertEquals("Test3 Success", 280, cart.getTotalPrice(cart));
 	}
 	
+	@Test
+	public void test4() {
+		try {
+			Cart cart = new Cart(3);
+			cart.addItems(new Item("E"));
+		} catch (Exception e) {
+			Assert.fail(e.getMessage());
+		}
+	}
 }
