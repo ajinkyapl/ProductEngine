@@ -69,6 +69,12 @@ public class Cart {
 		
 	}
 
-	
+	public int getCartPrice(Cart cart) {
+		cart.getItems().forEach(item -> itemCount.put(item.getId(), itemCount.get(item.getId()) + 1));
+		
+		ProductCatalogue.promoList.stream();
+		
+		return cart.getAmount();
+	}
 
 }
