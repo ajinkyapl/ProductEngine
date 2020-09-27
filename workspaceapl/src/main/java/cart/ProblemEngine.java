@@ -10,11 +10,13 @@ public class ProblemEngine {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Total Products : ");
 		int a = Integer.parseInt(br.readLine());
+		Cart cart = new Cart(a);
 		for (int i = 0; i < a; i++) {
 			System.out.println("Product Type: (A,B,C or D)");
-			//get product input
+			cart.addItems(new Item(br.readLine().toUpperCase()));
 		}
 
+		System.out.println("Total Cart Amount: " + cart.getTotalPrice(cart));
 	}
 
 }
