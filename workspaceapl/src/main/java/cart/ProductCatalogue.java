@@ -6,8 +6,10 @@ import java.util.List;
 
 public class ProductCatalogue {
 
+	//Map for Values of Products
 	static public HashMap<String, Integer> itemCostMap = new HashMap<>();
-
+	
+	//List of Promotion object which contain rule and cost
 	static public List<Promotion> promoList = new ArrayList<>();
 
 	static {

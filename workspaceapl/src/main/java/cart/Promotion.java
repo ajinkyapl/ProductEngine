@@ -2,6 +2,7 @@ package cart;
 
 import java.util.HashMap;
 
+//Promotion Object which contain rule and cost associated with it.
 public class Promotion {
 
 	private int promoPrice;

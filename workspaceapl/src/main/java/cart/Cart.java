@@ -8,8 +8,11 @@ import java.util.Map;
 public class Cart {
 
 	private List<Item> items;
+	
+	//Final cart count.
 	private int amount = 0;
 
+	// Map for count of products added in cart.
 	private Map<String, Integer> itemCount = new HashMap<>();
 
 	public Cart(int i) {
@@ -37,13 +40,22 @@ public class Cart {
 		this.amount = this.amount + amount;
 	}
 
+	// Function to get cart object and calculates total cost of products in cart.
 	public int getTotalPrice(Cart cart) {
 		
+		//code to get count of products by type and set in itemCount
 		cart.getItems().forEach(item -> itemCount.put(item.getId(), itemCount.get(item.getId()) + 1));
-
+		
+		//Rule1 and rule2 added
 		cart.addAmount(
 				(itemCount.get("A") / 3) * 130 + (itemCount.get("A") % 3 * ProductCatalogue.itemCostMap.get("A")));
+		cart.addAmount(
+				(itemCount.get("B") / 2) * 45 + (itemCount.get("B") % 2 * ProductCatalogue.itemCostMap.get("B")));
+
+		cart.addAmount(itemCount.get("C") * ProductCatalogue.itemCostMap.get("C")
+					+ itemCount.get("D") * ProductCatalogue.itemCostMap.get("D"));
 		return cart.getAmount();
+		
 	}
 
 	
